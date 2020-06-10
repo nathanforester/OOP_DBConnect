@@ -23,7 +23,7 @@ class MSDBConnection:
 
 
 nwind = MSDBConnection()
-# print(nwind.sql_query('SELECT * FROM products').fetchall())
+# print(nwind.sql_query('SELECT * FROM products').fetchall()) # adding some code to check branching
 
 results = nwind.sql_query('SELECT * FROM products')
 
