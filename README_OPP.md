@@ -98,4 +98,4 @@ class DBClientTable(MSDBConnection):
  Within these subclasses, the functions for CRUD, which have been explained previously in this documentation
  are implemented and can be tested before user input is entered via the runfile
  
- - Previous version of software available via git hub branches to this project
+ - Previous version of software available via git hub branches
