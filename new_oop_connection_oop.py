@@ -1,5 +1,6 @@
 import pyodbc
 
+
 class MSDBConnection:
 
 # should establish connection with any DB with have in MS_SQL
