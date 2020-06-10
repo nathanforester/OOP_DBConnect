@@ -7,7 +7,8 @@
 - Need to add further abstraction that abstracts interaction with specific tables
 ## CRUD
 - Create:
-````    def create_entry(self, productName, supplierID, categoryID, quantityPerUnit,
+````    
+def create_entry(self, productName, supplierID, categoryID, quantityPerUnit,
                                unitsInStock, unitsOnOrder, reorderLevel, discontinued):
         return self.sql_query(f"""INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit,
                                UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
