@@ -17,21 +17,21 @@ class MSDBConnection:
                                     'DATABASE='+self.database+';''UID='+self.username+';PWD='+self.password)
         return connection
 
-    # open to injections
     def sql_query(self, sql_string):
-        # call method to filter out DROP table and DELETE * and only allow certain SQL queries
+
         return self.cursor.execute(sql_string)
 
 
 nwind = MSDBConnection()
-# print(nwind.sql_query('SELECT * FROM products').fetchall()) # adding some code to check branching
+print(nwind.sql_query('SELECT * FROM products').fetchall())
 
 results = nwind.sql_query('SELECT * FROM products')
+while True:
+    row = results.fetchone()
 
-# while True:
-#     row = results.fetchone()
-#
-#     if row is None:
-#         break
-#     print(row)
+    if row is None:
+        break
+    print(row)
 
+# open to injections - def sql query
+# call method to filter out DROP table and DELETE * and only allow certain SQL queries - attribute to def sql query

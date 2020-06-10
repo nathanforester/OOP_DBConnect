@@ -7,12 +7,12 @@ password = 'Passw0rd2018'
 connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';'
                             'UID='+username+';PWD='+password)
 
-print(connection)
+# print(connection)
 
 cursor = connection.cursor()
-print(cursor)
+# print(cursor)
 
-query_result = cursor.execute('SELECT * FROM products')
+# query_result = cursor.execute('SELECT * FROM products')
 # # print(query_result.fetchone())
 # # print(query_result.fetchone())
 # # print(query_result.fetchall()) # less one entry in th cursor
@@ -40,4 +40,4 @@ query_result = cursor.execute('SELECT * FROM products')
 
 # also behaves like an oop objects, where the parameters are the column names
 
-print(cursor.fetchmany())
+# print(cursor.fetchmany())
