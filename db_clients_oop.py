@@ -13,8 +13,8 @@ class DBClientTable(MSDBConnection):
                                 '{CompanyName}', '{ContactName}', '{ContactTitle}', '{Address}', '{City}', '{Region}', 
                                 '{PostalCode}', '{Country}', '{Phone}', '{Fax}')""").commit
 
-    def get_by_id(self, City):
-        self.sql_query(f"SELECT * FROM Customers WHERE City LIKE '%{City}'").fetchall()
+    def get_by_id(self, val):
+        return self.sql_query(str(f"SELECT * FROM Customers WHERE CustomerID = '{val}'")).fetchall()
 
     def get_all(self, client_name=None):
         result_list = []
@@ -29,8 +29,15 @@ class DBClientTable(MSDBConnection):
             result_list.append(row)
         return result_list
 
+    def update_db(self, column_1, val_1, column_2, condition):
+        return self.sql_query(f"UPDATE Customers SET {column_1} = '{val_1}' WHERE {column_2} = '{condition}'").commit
 
-new_client = DBClientTable()
-print(new_client.get_all())
-# print(new_client.get_by_id("B"))
+
+# new_client = DBClientTable()
+# print(new_client.get_all('Maria'))
+
+# for data in new_client.get_all():
+#     print(data)
+# print(new_client.get_by_id('ALFKI'))
 # print(new_client.create_client('ab', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'))
+# print(new_client.update_db('CompanyName', 'Bara Brith', 'CustomerID', 'a     '))
