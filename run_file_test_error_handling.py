@@ -1,3 +1,12 @@
+# while True:
+#     try:
+#         user_input = int(input("Enter any number to continue: "))
+#     except ValueError:
+#         print("input must be a number from 1-9: ")
+#     else:
+#         print("Thank you, entry successful!")
+
+import sys
 from db_products_oop import DBProductTable
 from db_clients_oop import DBClientTable
 from new_oop_connection_oop import MSDBConnection
@@ -13,18 +22,25 @@ while True:
                 user_input = input("Push s to search, a to add entry, u to update entry or x to exit: ")
                 while user_input != 'x':
                     if user_input == 'a':
-                        user_input_1 = input("Enter product name or press 'x' to abort")
-                        user_input_2 = int(input())
-                        user_input_3 = int(input())
-                        user_input_4 = input()
-                        user_input_5 = int(input())
-                        user_input_6 = int(input())
-                        user_input_7 = int(input())
-                        user_input_8 = int(input())
-                        print(new_entry.create_entry(user_input_1, user_input_2, user_input_3, user_input_4, user_input_5, user_input_6,
-                                                     user_input_7, user_input_8))
-                        while user_input_1 == 'x':
-                            break
+
+                        user_input = input('press any key to continue or x to quit: ')
+                        while user_input != 'x':
+                            try:
+                                user_input_1 = input("Enter product name or press 'x' to abort: ")
+                                while user_input_1 == 'x':
+                                    sys.exit(-1)
+                                user_input_2 = input("Enter quantity in descriptive terms (words): ")
+                                user_input_3 = int(input('enter number: '))
+                                user_input_4 = int(input('enter number: '))
+                                user_input_5 = int(input('enter number: '))
+                                user_input_6 = int(input('enter number: '))
+                                user_input_7 = int(input('enter number: '))
+                                user_input_8 = int(input('enter number: '))
+                            except ValueError:
+                                print('Incorrect value selected. Enter only number when prompted. Please start again')
+                            else:
+                                print(new_entry.create_entry(user_input_1, user_input_4, user_input_3, user_input_2,
+                                                             user_input_5, user_input_6, user_input_7, user_input_8))
                     elif user_input == 's':
                         while user_input != 'x':
                             user_input_2 = input("push any key to continue search or x to exit: ")
@@ -83,4 +99,6 @@ while True:
             break
     if user_input == 'x':
         break
+
+
 

@@ -14,7 +14,7 @@ class DBProductTable(MSDBConnection):
                                 {unitsInStock}, {unitsOnOrder}, {reorderLevel}, {discontinued})""").commit
 
     def get_by_id(self, id):
-        return self.sql_query('SELECT * FROM Products WHERE ProductID =' + str(id)).fetchone()
+        return self.sql_query(f"SELECT * FROM Products WHERE ProductID = " + str(id)).fetchone()
 
     def get_all(self, product_name=None):
         result_list = []
@@ -44,10 +44,12 @@ class DBProductTable(MSDBConnection):
 product_table = DBProductTable()
 
 # print(product_table.get_by_id(1))
-# print(product_table.get_all())
+# print(product_table.get_all('Chai'))
+# for data in product_table.get_all():
+#     print(data)
 # print(product_table.get_all('Chef'))
 # print(product_table.create_entry('Chai', 1, 2, 'half doz', 4.0, 6, 7, 5))
-print(product_table.update_db('ProductName', 'Chai', 'QuantityPerUnit', '10 boxes x 20 bags'))
+# print(product_table.update_db('ProductName', 'Chai', 'QuantityPerUnit', '10 boxes x 20 bags'))
 
 
      # return self.sql_query(f"UPDATE Products SET ProductName = 'Chai Chai', SupplierID = 2 WHERE ProductID = 1").commit

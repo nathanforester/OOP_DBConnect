@@ -22,16 +22,16 @@ class MSDBConnection:
         return self.cursor.execute(sql_string)
 
 
-nwind = MSDBConnection()
-print(nwind.sql_query('SELECT * FROM products').fetchall())
-
-results = nwind.sql_query('SELECT * FROM products')
-while True:
-    row = results.fetchone()
-
-    if row is None:
-        break
-    print(row)
+# nwind = MSDBConnection()
+# print(nwind.sql_query('SELECT * FROM products').fetchall())
+#
+# results = nwind.sql_query('SELECT * FROM products')
+# while True:
+#     row = results.fetchone()
+#
+#     if row is None:
+#         break
+#     print(row)
 
 # open to injections - def sql query
 # call method to filter out DROP table and DELETE * and only allow certain SQL queries - attribute to def sql query
