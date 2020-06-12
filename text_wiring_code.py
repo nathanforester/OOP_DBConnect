@@ -1,11 +1,53 @@
-file1 = open("MyFile.txt","a")
+file1 = open("MyFile.txt", "a")
 
-file1.write('str1')
+try:
+    file2 = open("no_file.txt", "a")
+except FileNotFoundError:
+    print("file does not exist, please enter valid filename/path")
+else:
+    print("file 1 opens")
+
+file1.write('str1 \n')
 
 L = ["This is Delhi \n", "This is Paris \n", "This is London \n"]
 file1.writelines(L)
 
-# file1.read(1)
+with open("MyFile.txt") as f:
+    for line in f:
+        print(line)
+        if 'str1' in line:
+            break
+
+def readfile(filepath):
+    file1 = open(filepath)
+    for line_ in file1:
+        print(line_, end='')
+    file1.close()
+
+
+def write_func(var):
+    var = str(var)
+    file1.write(var)
+
+
+
+
+string1 = 'badger \n'
+write_func(string1)
+
+
+# file1 = open("MyFile.txt", "r")
+#
+# lines = file1.readlines()
+
+# for line in lines:
+#     var1 = 'badger'
+#     var2 = line.split(",")
+#     my_file = open('new_file.txt', 'w')
+#     my_file.writelines(var1)
+#     my_file.close()
+# file1.close()
+
 
 file1.write("Hello \n")
 file1.writelines(L)
